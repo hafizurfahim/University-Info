@@ -1,0 +1,26 @@
+﻿@model List<University_Info.Models.Student>
+@{
+    ViewData["Title"] = "Getall";
+    List<Student> students = (List < Student >)ViewBag.studen;
+}
+
+<h1>Getall</h1>
+<table class="table table-bordered" >
+    @foreach (var item in Model)
+    {
+        <tr>
+    <td>@item.student_name </td>
+        <td>@item.reg_no </td>
+        <td>@item.address </td>
+        <td>@item.dept_name </td>
+        <td>@item.email </td>
+
+</tr>
+
+
+    }
+
+
+
+</table>
+

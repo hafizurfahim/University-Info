@@ -1,0 +1,77 @@
+﻿@model University_Info.Models.Student
+@{
+    ViewData["Title"] = "Savestudent";
+}
+
+<h1>Savestudent</h1>
+<h2>@ViewBag.viewbag</h2>
+@using (Html.BeginForm(FormMethod.Post))
+{
+<table>
+    <tr>
+        <td>@Html.LabelFor(c => c.student_name)</td>
+        <td>@Html.TextBoxFor(c => c.student_name)</td>
+        <td>@Html.ValidationMessageFor(c=> c.student_name)</td>
+
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(c => c.address)</td>
+        <td>@Html.TextBoxFor(c => c.address)</td>
+        <td>@Html.ValidationMessageFor(c => c.address)</td>
+
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(c => c.email)</td>
+        <td>@Html.TextBoxFor(c => c.email)</td>
+        <td>@Html.ValidationMessageFor(c => c.email)</td>
+
+    </tr>
+
+    <tr>
+        <td>@Html.LabelFor(c => c.reg_no)</td>
+        <td>@Html.TextBoxFor(c => c.reg_no)</td>
+        <td>@Html.ValidationMessageFor(c => c.reg_no)</td>
+
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(c => c.dept_name)</td>
+        <td>@Html.DropDownListFor(c => c.dept_name,new SelectList(ViewBag.vb,"id","dept_name"),"--------select-------");</td>
+
+    </tr>
+
+<tr>
+    <td>
+        <input type="submit" value="Save"/>
+    </td>
+</tr>
+
+</table>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Registration No</th>
+            <th>Address</th>
+            <th>Department Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in ViewBag.gatewayview)
+        {
+            <tr>
+                <td>@item.student_name </td>
+                <td>@item.reg_no </td>
+                <td>@item.address </td>
+                <td>@item.dept_name </td>
+                <td>@item.email </td>
+
+            </tr>
+
+        }
+
+        </tbody>
+
+</table>
+}
